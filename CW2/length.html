@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+    <title>Length </title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #inch { width: 70px }
+    #cm {width: 70px }
+    #out {
+        font-size: 18px;
+        background: blue;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+  </style>
+</head>
+
+<body>   
+
+<h2 id=title>INCH - CM CONVERTER</h2>
+inch
+<input type=number id=inch value=0 oninput="inchToCM(this.value)"
+onchange="inchToCM(this.value)">
+&emsp;
+to
+&emsp;
+cm
+<input type="number" id="cm" value=0 oninput="cmToInch(this.value)"
+onchange="cmToInch(this.value)">
+
+<script>
+
+function inchToCM(value){
+    document.getElementById('cm').value = value/0.39370;
+}
+
+function cmToInch(value){
+    document.getElementById('inch').value = value*0.39370;
+}
+
+</script>
+
+</body>
+</html>
