@@ -36,11 +36,11 @@ onchange="cmToInch(this.value)">
 <script>
 
 function inchToCM(value){
-    document.getElementById('cm').value = value/0.39370;
+    document.getElementById('cm').value = (value/0.39370).toFixed(1);
 }
 
 function cmToInch(value){
-    document.getElementById('inch').value = value*0.39370;
+    document.getElementById('inch').value = (value*0.39370).toFixed(1);
 }
 
 </script>
