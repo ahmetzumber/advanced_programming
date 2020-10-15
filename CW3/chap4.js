@@ -17,12 +17,12 @@ function tableFor(evt) {
 
 function analyze(min=0) {
   let a = [];
-  let counter = 0
   for (let evt of EVENTS) {
+    let data = tableFor(evt);
     let cor = phi(tableFor(evt));
-    if (Math.abs(cor) > min)  
-      a.push(evt +": "+cor.toFixed(4)+" "+counter)
-      counter++;
+    if (Math.abs(cor) > min) {
+      a.push(evt +": "+cor.toFixed(4)+" - "+(Number(data[1]) + Number(data[3])))
+    }
   }
   return a
 }
