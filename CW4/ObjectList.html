@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="../images/icon192.png">
+    <title>List of Objects </title>
+
+  <style>
+    body { max-width: 500px; }
+    #inp { white-space: pre-wrap; }
+    #sample { overflow-x: auto; }
+    #out { color: blue; }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<b>Text input &emsp;
+<input type=button id=convert value=Convert onclick="toList()">
+</b>
+<p>
+  <textarea id=inp onchange="convert.disabled=false" rows=10 cols=50 >
+  </textarea>
+
+</p>
+<b>JSON output</b>
+<br>
+<pre id=out></pre>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#Examples" 
+   target="NewTab">Rest Parameters</a>
+</p>
+<img src="./codes01.png">  
+<img src="./codes02.png">
+<script>
+"use strict";
+
+function toList(str) {
+  //  Array objelerinde map, filter, sort ve push fonksiyonlarını kullandım 
+  //  push() fonksiyonu ile diziye yeni obje ekledim
+  function toObject(x) {
+    let b = {}
+    for (let [i,s] of x.split('\t').entries())
+      b[keys[i]] = (isNaN(s)? s : Number(s))
+    return b
+  }
+    if (str) inp.value = str
+    else str = inp.value
+    
+    let [d0, ...data] = str.split('\n')
+    let keys = d0.split('\t')
+    console.log("Keys:", keys)
+    let a = data.map(toObject)
+    out.innerText = JSON.stringify(a, '' ,2)
+    console.table(a)
+    return a
+}
+const DATAS = 
+`OrderDate	Region	Rep	Item	Units	Unit Cost	Total
+9.1.14	Central	Smith	Desk	2	 125,00 	 250,00 
+6.17.15	Central	Kivell	Desk	5	 125,00 	 625,00 
+9.10.15	Central	Gill	Pencil	7	 1,29 	 9,03 
+11.17.15	Central	Jardine	Binder	11	 4,99 	 54,89 
+10.31.15	Central	Andrews	Pencil	14	 1,29 	 18,06 
+2.26.14	Central	Gill	Pen	27	 19,99 	 539,73 
+10.5.14	Central	Morgan	Binder	28	 8,99 	 251,72 `;
+
+    title.innerText = document.title
+    sample.innerText = toList
+    inp.value = DATAS
+    //toList()  //array of objects
+</script>
+
+</body>
+</html>
