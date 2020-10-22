@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="../images/icon192.png">
+    <title>Inspector </title>
+
+    <style>
+        body { max-width: 600px; }
+    </style>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a> &nbsp;
+<a href="Objects">Objects</a>
+</p>
+<div id=sss></div>
+<p><input type=file multiple onChange='fileSelect(this)' /></p>  
+<pre id=disp1></pre> <img id=disp2 />
+<button style="margin: 10px;" onclick="question01()">Question 01</button><br>
+<textarea id="journals" style="width: 300px; height:300px ;">
+    
+</textarea>
+<br>
+
+<h3 id=title>CELCIUS - FAHRENHEIT CONVERTER</h3>
+fahrenheit
+<input type=number id=fahrenheit value=0 oninput="convert(this.value).fahrenheitToCelcius()"
+onchange="convert(this.value).fahrenheitToCelcius()">
+&emsp;
+to
+&emsp;
+celcius
+<input type="number" id="celcius" value=0 oninput="Converter.celciusToFahrenheit(this.value)"
+onchange="Converter.celciusToFahrenheit(this.value)">
+
+<link  href="https://maeyler.github.io/JS/sss/inspector.css" rel="stylesheet">
+<script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+<script src="chap4.js"></script>
+<script src="chap6.js"></script>
+<script>
+
+class Chap4 extends Menu {
+  constructor() {
+    super();
+    this.JOURNAL = JOURNAL;
+    this.EVENTS = EVENTS;
+  }
+  correlation(evt) { 
+    return phi(window.tableFor(evt)) 
+  }
+  analyze(val) {
+    return window.analyze(val)
+  }
+  tableFor(evt) {
+    return window.tableFor(evt)
+  }
+
+}
+
+class Converter {
+    constructor(value) {
+        this.value = value;
+    }
+    celciusToFahrenheit(value){
+        value = parseFloat(value);
+        document.getElementById("fahrenheit").innerHTML=(value*1.8)+32;
+    }   
+    fahrenheitToCelcius(value){
+        value = parseFloat(value);
+        document.getElementById("celcius").innerHTML=(value-32)/1.8;
+    }  
+}
+
+const convert = new Converter();
+
+
+function question01(){
+    for (let i of JOURNAL){
+        for (let j of i.events){
+            if (j.includes('work') || j.includes('weekend')){
+                //console.log(i.events)
+                document.getElementById('journals').value += i.events+"\n";
+            }
+        }
+    }
+}
+
+
+var a, b, c, d, s;  //global variables
+function init() {
+    let len = 123, name = "Circle", pi = Math.PI
+    a = [0, 11, "22", "abc"]
+    c = {len, name, pi}
+    d = new Date()
+    s = "Small is beautiful"
+    MENU = {a,c,d,s,window} //global
+    //make MENU a Menu instance
+    Object.setPrototypeOf(MENU, Menu.prototype)
+    display(MENU); 
+    display(new Chap4());
+    display(new Chap6());
+    display(new Quiz());
+    display(new Async());
+    display(MENU); 
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(sss, init); //makes the table
+        inp.value = "new Date()";
+    } catch(e) {
+        reportError(e);
+    }
+    
+
+
+
+</script>
+</body>
+</html>
