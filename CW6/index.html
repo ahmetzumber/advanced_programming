@@ -39,9 +39,14 @@
 "use strict";
 // JavaScript comment
 function check() {
-    fetch(url.value).then(r => 
-        resp.innerText = r.ok
-    )
+    fetch(url.value).then(r => {
+      if(b.ok){
+        resp.innerText = 'ok'
+      }else{
+        resp.innerText = 'failure'
+      }
+    }
+  )
 }
 function init() {
 
