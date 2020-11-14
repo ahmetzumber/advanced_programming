@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/305/images/icon192.png">
+    <title>Homework 2 - Student Database </title>
+
+  <style>
+    body { max-width: 440px; }
+    .link {
+        color: blue;
+        cursor: pointer;
+        font-style: italic;
+    }
+    .liste {
+        visibility: hidden;
+        font: 11px arial, sans-serif;
+        color: white;
+        background: blue;
+        cursor: text;
+        padding: 6px;
+        position: absolute;
+        height: 116px;
+        overflow-y: auto;
+    }
+    .link:hover .liste { 
+        visibility: visible; 
+    }
+    #exam{
+        border-radius: 5px;
+        border-color: #bbbfca;
+        background-color: #bbbfca;
+    }
+    #student{
+        border-radius: 5px;
+        border-color: #bbbfca;
+        background-color: #bbbfca;
+    }
+    #course{
+        border-radius: 5px;
+        border-color: #bbbfca;
+        background-color: #bbbfca;
+    }
+    #total{
+        border-radius: 5px;
+        border-color: #bbbfca;
+        background-color: #bbbfca;
+    }
+    #one{
+        border-radius: 5px;
+        border-color: #f05454;
+        background-color: #f05454;
+    }
+    #sec{
+        border-radius: 5px;
+        border-color: #f05454;
+        background-color: #f05454;
+    }
+    #one:hover{
+        color: white;
+        background: #f9813a;
+        border-color: #f9813a;
+    }
+    #exam:hover{
+        color: white;
+        background: #706897;
+        border-color: #706897;
+    }
+    #student:hover{
+        color: white;
+        background: #706897;
+        border-color: #706897;
+    }
+    #course:hover{
+        color: white;
+        background: #706897;
+        border-color: #706897;
+    }
+    #total:hover{
+        color: white;
+        background: #706897;
+        border-color: #706897;
+    }
+    #sec:hover{
+        color: white;
+        background: #f9813a;
+        border-color: #f9813a;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+<button onClick='randomStd()'>Random</button>
+<button onClick='findBest()'>Best GPA</button>
+<button onClick='clearAll()'>Clear</button>
+
+
+<p>Exam room: 
+<input id="examid" type="text" onChange="courseListByExamRoom(value)">
+<button id="course" onClick='courseListByExamRoom(examid.value)'>Course List</button>
+<div id="examResult" style="color: blue;"></div>
+<hr>
+<p>Student ID: 
+<input id="stuid" type=number onChange="examScheduleByStudentID(value)">
+<button id="exam" onClick='examScheduleByStudentID(stuid.value)'>Exam Schedule</button>
+<div id="studentResult" style="color: blue;"></div>
+<hr>
+</p>
+<p>Course ID: 
+<input id="courseid" type=text onChange="studentListByCourseID(value)">
+<button id="student" onClick='studentListByCourseID(courseid.value)'>Student List</button>
+<div id="courseResult" style="color: blue;"></div>
+<hr>
+</p>
+<p>Room: 
+<input id="roomNum" type=text onChange="totalNumberOfCourse(this.value)">
+<button id="total" onClick='totalNumberOfCourse(roomNum.value)'>Total Number of Courses</button>
+<div id="roomResult" style="color: blue;"></div>
+<hr>
+<p>Course ID:
+<input id="avg" type=text onChange="averageGPA(this.value)">
+<button id="one" onClick='averageGPA(avg.value)'>Average GPA</button>
+<div id="averageResult" style="color: blue;"></div>
+<hr>
+<p>Student ID:
+<input id="second" type=text onChange="secondQuestion(this.value)">
+<button id="sec" onClick='secondQuestion(second.value)'>Count msec</button>
+<div id="secResult" style="color: blue;"></div>
+<hr>
+
+
+<p id=out onClick='doClick(event)'>Result:</p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+"use strict";
+class Student {
+    constructor(id, name, gpa, ...list) {
+        if (!id) throw "Undefined Student id"
+        this.id = id; this.name = name;
+        this.gpa = gpa.padEnd(4,'0'); 
+        this.list = list
+    }
+    toString() {
+        return this.id+' '+this.name+' '+this.gpa
+    }
+    static fromString(s) {
+        return new Student(...s.split('\t'))
+    }
+}
+
+class Course { 
+    constructor(id,time,date,...rooms) {
+        if (!id) throw "Undefined Course id"
+        this.id = id
+        this.time =time
+        this.date = date
+        this.rooms = rooms
+    }
+    toString() {
+        return this.id+" "+this.time+" "+this.date
+    }
+    static fromString(s) {
+        return new Course(...s.split('\t'))
+    }
+}
+
+function report(msg, id, list) {
+    msg += " "; let txt = "<br>\n"+msg;
+    if (id) {
+        msg += id; txt += "<span class=link>"+id
+        if (list)  txt += "<span class=liste>"
+                    +list.join("<br>")+"</span>"
+        txt += "</span>"
+    }
+    console.log(msg); out.innerHTML += txt; 
+}
+
+const stdMap = new Map(), crsMap = new Map(); 
+
+function makeData(txt, Maker, map) {
+    map.clear()
+    for (let line of txt.split('\n')) {
+        if (!line) 
+            continue
+        let std = Maker.fromString(line)
+        map.set(std.id, std)
+    }
+    report(map.size+" items");
+    return map;
+}
+
+function doClick(evt) {
+    let s = evt.target.innerText;
+    //if s contains only digits
+    if (/^\d+$/.test(s)) showStudent(s); 
+}
+
+function showStudent(id) {
+    let std = stdMap.get(id);
+    if (!std) return report(id+" not found");
+    let t = std.toString()
+    report(t, "("+std.list.length+" courses)", std.list);
+    return std
+}
+
+function showCourse(id) {
+    id = id.toUpperCase();
+    let a = [];
+    for (let std of stdMap.values()) 
+        if (std.list.includes(id)) 
+            a.push(std.id+" "+std.name);
+    if (a.length > 0){
+        report(id+": ", a.length+" students",a);
+        report("TIME: " + crsMap.get(id).time + "\n"+"DATE: "+ crsMap.get(id).date)
+    }
+        
+    else report("No students in "+id);
+    return a
+}
+
+function randomStd() {
+    let keys = [...stdMap.keys()]  //Iterable
+    console.assert(keys.length == stdMap.size)
+    let i = Math.trunc(keys.length * Math.random());
+    let b = stdMap.get(keys[i]);
+    report("Random: ", b.id);
+    return b
+}
+
+function findBest() { 
+    let best = 0 
+    for (let student of stdMap.values()){
+        console.log(student)
+        if(student.gpa > best){
+            best = student.gpa
+        }
+    }
+    report(best);
+}
+
+function readStudents() {
+    fetch(LINK+"Students.txt").then(r => r.text())
+    .then(t => makeData(t, Student, stdMap))
+}
+
+function readCourses() {
+    fetch(LINK+"Courses.txt").then(r => r.text())
+    .then(course => makeData(course,Course,crsMap))
+}
+
+
+// ----- my works ----- 
+function clearAll(){
+    out.innerText=""
+    examResult.innerText=""
+    studentResult.innerText=""
+    courseResult.innerText=""
+    roomResult.innerText=""
+    averageResult.innerText=""
+    secResult.innerText=""
+}
+const LINK = "https://maeyler.github.io/JS/data/"
+// fetching API
+function fetchData(file) {
+    if(file.includes("Students")){
+        fetch(LINK+file)
+            .then(res => res.text())
+            .then(res => studentDatas(res))
+            .catch(err => console.error(err))
+            console.log(stdMap)
+    }
+    else if(file.includes("Courses")) {
+        fetch(LINK+file)
+            .then(res => res.text(),report)
+            .then(res => courseDatas(res))
+            .catch(err => console.error(err))
+            console.log(crsMap)
+    }
+}
+/*
+* we split every single line with '\n' 
+* for each student and courses by given text file
+*/ 
+function studentDatas(txt) {
+    let line = txt.split('\n');
+    for (let studentInfo of line) {
+        let newStudent = parseLineToStudent(studentInfo);
+        stdMap.set(newStudent.id, newStudent)
+    }
+}
+
+function courseDatas(txt){
+    let line = txt.split('\n');
+    for(let courseInfo of line){
+        let newCourse = parseLineToCourse(courseInfo);
+        crsMap.set(newCourse.id, newCourse);
+    }
+}
+/*
+* we split every single word with tab 
+* for each information by given a specified line
+*/ 
+function parseLineToStudent(line){
+    let [id, name, gpa, ...list] = line.split('\t');
+    let student = new Student(id, name, gpa, list);
+    return student;
+}
+
+function parseLineToCourse(line){
+    let [id,time,date,...rooms] = line.split('\t');
+    let course = new Course(id, time, date, rooms);
+    return course;
+}
+
+// QUERIES
+function courseListByExamRoom(roomID){
+    examResult.innerHTML = ""
+    roomID = roomID.toUpperCase();
+    let array = [];
+    // searching exam rooms in course map
+    for (let course of crsMap.values())
+        for(let room of course.rooms)
+            if(room == roomID)
+                array.push(course.id)         
+    
+    // displaying all courses in array
+     for (let i of array) 
+        if(array.length > 0)
+            examResult.innerHTML += i+`<br/>`
+        else
+            examResult.innerHTML += 'No course by given room'        
+}
+
+function examScheduleByStudentID(studentID){
+    studentResult.innerHTML = ""
+    let array = []
+    // searching students 
+    for(let student of stdMap.values()){
+        if(studentID == student.id)
+            // searching course list by given student ID
+            for(let studentLessonList of student.list)
+                for(let lessons of studentLessonList)
+                    array.push(lessons)     
+    }
+    // display every exam chedule
+    for(let course of array)
+        if(array.length > 0)
+            studentResult.innerHTML += crsMap.get(course)+`<br/>`
+        else
+            studentResult.innerHTML += 
+                'There is no exam schedule for given student ID'
+}
+
+function studentListByCourseID(courseID){
+    courseResult.innerHTML = ""
+    courseID = courseID.toUpperCase();
+    let array = []
+    // finding the students by given course ID
+    for (let student of stdMap.values()){
+        for(let courses of student.list){
+            if (courses.includes(courseID))
+                array.push(student)
+        }
+    }
+    // displaying students
+    for(let stu of array)
+        if (array.length > 0)
+            courseResult.innerHTML += stu.id+' '+stu.name+`<br/>`
+        else
+            courseResult.innerHTML += 
+                'There is no student by given course ID'
+}
+
+function totalNumberOfCourse(roomID){
+    roomResult.innerHTML = ""
+    roomID = roomID.toUpperCase();
+    let count = 0
+    // searching courses by given room ID
+    for (let course of crsMap.values())
+        for(let room of course.rooms)
+            if(room == roomID)
+                count += 1
+
+    roomResult.innerHTML += 
+        'There are '+count+' courses by given room ID'
+}
+
+function averageGPA(courseID){
+    averageResult.innerHTML = ""
+    courseID = courseID.toUpperCase();
+    let countStudent = 0, gpas = 0, average = 0
+    // finding the students by given course ID
+    for (let student of stdMap.values()){
+        for(let courses of student.list){
+            if (courses.includes(courseID)){
+                gpas += Number(student.gpa)
+                countStudent++;
+            }
+        }
+    }
+    average = gpas / countStudent;
+    if(!crsMap.get(courseID))
+        averageResult.innerHTML += 'There is no course by given ID'+`<br/>`
+    else
+        averageResult.innerHTML += " Average GPA: "+average+`<br/>`
+    
+}
+
+function secondQuestion(studentID) {
+        secResult.innerText = ""
+        let keys = []
+        for (let student of stdMap) 
+            keys.push(student[0]);
+        
+        let countKey = 0, countMap = 0
+        let passingTimeKey = 0, passingTimeMap = 0
+        // key test
+        const startTimeKey = Date.now()
+        for(let i = 0; i < 10000 ; i++)
+            if(keys.includes(studentID+i))
+                countKey++
+            
+        passingTimeKey = Date.now() - startTimeKey
+        // map test
+        const startTimeMap = Date.now()
+        for (let i = 0; i < 10000 ; i++) 
+            if (stdMap.has(studentID+i)) 
+                countMap++
+            
+        passingTimeMap = Date.now() - startTimeMap
+
+        secResult.innerHTML += 
+                'Keys time: '+passingTimeKey+' msec'+
+                `<br/>`+'Maps time: '+passingTimeMap+' msec'
+                                
+
+
+}
+
+
+
+title.innerText = document.title
+sample.innerText = courseListByExamRoom+"\n\n"+examScheduleByStudentID+"\n\n"
+                   +studentListByCourseID+"\n\n"+totalNumberOfCourse+"\n\n"+secondQuestion
+
+readStudents(); readCourses();
+fetchData("Students.txt");
+fetchData("Courses.txt");
+</script>
+</body>
+</html>
