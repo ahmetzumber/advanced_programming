@@ -15,7 +15,7 @@ This repository includes all works in the Advanced Programming course
 ## Homeworks ⌨
 
 - [HW1](https://ahmetzumber.github.io/advanced_programming/HW%231/table.html)
-
+- [HW2](https://ahmetzumber.github.io/advanced_programming/HW2/database.html)
 
 ## License
 
