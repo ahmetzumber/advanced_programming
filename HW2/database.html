@@ -126,9 +126,9 @@
 <button id="one" onClick='averageGPA(avg.value)'>Average GPA</button>
 <div id="averageResult" style="color: blue;"></div>
 <hr>
-<p>Student ID:
-<input id="second" type=text onChange="secondQuestion(this.value)">
-<button id="sec" onClick='secondQuestion(second.value)'>Count msec</button>
+<p>Random Student ID :
+<span id="second" style="color: blue;"></span>
+<button id="sec" onClick='secondQuestion()'>Count msec</button>
 <div id="secResult" style="color: blue;"></div>
 <hr>
 
@@ -415,34 +415,36 @@ function averageGPA(courseID){
     
 }
 
-function secondQuestion(studentID) {
+function secondQuestion() {
         secResult.innerText = ""
+        second.innerText = ""
         let keys = []
         for (let student of stdMap) 
             keys.push(student[0]);
         
-        let countKey = 0, countMap = 0
+        var countKey = 0, countMap = 0
         let passingTimeKey = 0, passingTimeMap = 0
+        let index = Math.trunc(keys.length * Math.random())
+        let student = stdMap.get(keys[index])
         // key test
         const startTimeKey = Date.now()
         for(let i = 0; i < 10000 ; i++)
-            if(keys.includes(studentID+i))
+            if(keys.includes(student.id+i))
                 countKey++
             
         passingTimeKey = Date.now() - startTimeKey
         // map test
         const startTimeMap = Date.now()
         for (let i = 0; i < 10000 ; i++) 
-            if (stdMap.has(studentID+i)) 
+            if (stdMap.has(student.id+i)) 
                 countMap++
             
         passingTimeMap = Date.now() - startTimeMap
 
+        second.innerHTML += student.id+' '
         secResult.innerHTML += 
-                'Keys time: '+passingTimeKey+' msec'+
-                `<br/>`+'Maps time: '+passingTimeMap+' msec'
-                                
-
+        'Keys time: '+passingTimeKey+' msec'+
+        `<br/>`+'Maps time: '+passingTimeMap+' msec'
 
 }
 
