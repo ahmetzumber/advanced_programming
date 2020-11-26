@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/305/images/icon192.png">
+    <title>Class Work 11 - Events</title>
+
+  <style> /* CSS comment */
+    body { max-width: 440px; }
+    #url { width: 190px; }
+    span, #url { color: blue; }
+  </style>
+</head>
+
+<body>   <!-- HTML comment: Modify all items marked xxx -->
+
+<h2 id=title ></h2>
+<p title="Battery level">
+  Battery Status: 
+  <div id=level style="color:blue"></div>
+  <div id=charge style="color:blue"></div>
+  <div id=disc style="color:blue"></div>
+  
+</p>
+<p title="Latitude/Longitude">
+  Online Status: <span id=online style="color:blue">??</span>
+</p>
+<p>
+    Keyboard : <span id=keyboard style="color:blue">??</span>
+  </p>
+<hr />
+<b>Sample code</b>
+<pre id=sample>This text is not shown. Why?</pre>
+
+<hr />
+
+<script>
+"use strict";
+// JavaScript comment
+
+function init() {
+    navigator.getBattery().then(b => {
+        b.onlevelchange = () => {
+            level.innerText = 
+            'Battery Level: ' +100*b.level+'%'
+        }
+        b.onchargingchange = () => {
+            charge.innerText = 
+            'Is charging: '+
+            (b.charging ? "On charging" : "Not charging")
+        }
+        b.ondischargingtimechange = () => {
+            disc.innerText = 
+            (b.dischargingTime/3600).toFixed(2) 
+            + ' remaining'
+        }
+    })
+    ononline = () => online.innerText = "Connected"
+    onoffline = () => online.innerText = "Not Connected"
+    onkeydown = e => keyboard.innerText = e.key
+    onkeyup = e => keyboard.innerText = e.key
+}
+    title.innerText = document.title;
+    sample.innerText = init+'\n';
+    init();
+</script>
+
+</body>
+</html>
