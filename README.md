@@ -13,6 +13,7 @@ This repository includes all works in the Advanced Programming course
 - [CW8](https://ahmetzumber.github.io/advanced_programming/CW8/localFiles.html)
 - [CW9](https://ahmetzumber.github.io/advanced_programming/CW9/dom_apps.html)
 - [CW10](https://ahmetzumber.github.io/advanced_programming/CW10/cryptoworks.html)
+- [CW11](https://ahmetzumber.github.io/advanced_programming/CW11/events.html)
 
 ## Homeworks ⌨
 
