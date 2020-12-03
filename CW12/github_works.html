@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="../images/icon192.png">
+  <title>Class Work - GitHub Users</title>
+  <style>
+    body {
+        max-width: 300px;
+    }
+    img {
+        padding-right: 12px; 
+        width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+<h2 id=title></h2>
+<input type=text id=usr value=maeyler onChange="readUser()">
+<p id=out></p>
+
+<pre id=sample></pre>
+
+
+<script>
+"use strict";
+function error(t) {
+    out.style.color = 'red'
+    out.innerText = t; throw t
+}
+async function toJSON(url) {
+    let r = await fetch(url)
+    if (!r.ok) error(r.statusText)
+    return r.json()
+}
+async function readUser() {
+    const BR = "<BR>", 
+      URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) 
+      error(usr.value+' not found')
+    //u.login is the same as usr.value
+    out.style.color = ''
+    out.innerHTML = ''
+    //start with a tiny image
+    let i = document.createElement("img")
+    i.src = u.avatar_url
+    i.align = "left"
+    out.appendChild(i)
+    // NAME
+    let name = document.createElement("div")
+    let nick = document.createElement("div")
+    let s = (u.name? u.name : u.login)
+    let nick_text = u.login
+    nick.innerText = nick_text+" "
+    name.style.fontSize = "20px"
+    name.innerHTML = s+" "
+    out.appendChild(name)
+    out.appendChild(nick)
+    let space = document.createElement("br")
+    out.appendChild(space)
+    // COMPANY 
+    let company = document.createElement("div")
+    let c_name = u.company
+    company.innerText = c_name+" "
+    out.appendChild(company)
+    // GITHUB
+    let h = "github.com/"+u.login
+    let a = document.createElement("a")
+    a.href = "https://"+h
+    a.target = "NewTab"
+    a.innerHTML = h+""
+    out.appendChild(a)
+    // EMAİL
+    let email = u.email
+    let link = document.createElement("a")
+    link.href = ""
+    if (email == null) 
+        link.innerHTML = BR+"Gecerli bir e-mail bulunamadi.."
+    else
+        link.innerHTML = BR+email+" "
+    out.appendChild(link)   
+    // BLOG
+    let blog = u.blog
+    let b_link = document.createElement("a")
+    b_link.href = ""
+    b_link.innerHTML = BR+blog+" "
+    out.appendChild(b_link)  
+}
+    title.innerText = document.title
+    out.innerText = "Reading data"
+    readUser()
+</script>
+
+</body>
+</html>
