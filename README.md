@@ -18,7 +18,7 @@
 
 - [HW1 - Poisson Table](https://ahmetzumber.github.io/advanced_programming/HW%231/table.html)
 - [HW2 - Database and Timing](https://ahmetzumber.github.io/advanced_programming/HW2/database.html)
-- [HW3 - Git and Animation]()
+- [HW3 - Git and Animation](https://ahmetzumber.github.io/305/anim/Animation)
 
 ## Project ⌨
 [Quiz Application]()
