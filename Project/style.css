@@ -1,0 +1,122 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    background-color: #cbbcb1;
+ }
+.question-box{
+    width: 500px;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 1px 1px 6px 1px rgba(0.5, 0.5, 0.2, 0.5);
+    font-family: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+}
+
+.question-header{
+    height: 70px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    background-color: #eeeeee;
+    justify-content: space-between;
+}
+#next{
+    height: 30;
+    width: 100px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 50px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family: inherit;
+    border-color: #eeeeee;
+    box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+}
+#next:hover{
+    border-color: #cbbcb1;
+    background-color: #cbbcb1;
+}
+.score{
+    padding-top: 2px;
+    height: 30;
+    width: 120px;
+    font-size: 15;
+    margin-top: 20px;
+    margin-left: 50px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family: inherit;
+    border-color: #eeeeee;
+    box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+}
+#result{
+    font-size: 15;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.fails{
+    display: inline;
+    margin-top: 20px;
+    margin-left: 180px;
+    justify-content: space-between;
+}
+img {
+    margin: 10px;
+    width: 15px;
+}
+
+.question-body{
+    padding: 2rem;
+    background-color: #eeeeee;
+}
+.question{
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+}
+
+.option-list{
+    padding: 0;
+    margin: 10px;
+    list-style-type: none;
+}
+
+ul li {
+    margin: 1rem 0;
+}
+label{
+    cursor: pointer;
+}
+
+#submitBtn{
+    height: 50;
+    width: 100%;
+    font-size: 18;
+    border: none;
+    color: white;
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    padding: 10px 0 10px 0;
+    transition-duration: 0.4s;
+    background-color: #16697a;
+}
+#submitBtn:focus{
+    outline: none;
+}
+#submitBtn:hover{
+    background-color: #394867;
+}
