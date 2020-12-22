@@ -69,10 +69,7 @@ body{
     border-color: #eeeeee;
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
 }
-.options:hover{
-    border-color: #c7beb8;
-    background-color: #c7beb8;
-}
+
 #result{
     font-size: 15;
     margin-top: 20px;

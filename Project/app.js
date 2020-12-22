@@ -27,7 +27,8 @@ function if_answer_correct(id) {
 }
 function if_answer_incorrect(id) {
     setTimeout(()=>{
-        document.getElementById(id).style.backgroundColor = "red";
+        document.getElementById(id).style.backgroundColor = "#ff4646";
+        document.getElementById(id).style.borderColor = "#ff4646"
     },5000);
 }
 
