@@ -1,26 +1,31 @@
-var currentQuestion = []
-var i = 0; // questions index
-let points = 0
+window.onload = sendApiRequest;
 
-// html elements 
-const question = document.getElementById('question')
-const option_a = document.getElementById('option-a')
-const option_b = document.getElementById('option-b')
-const option_c = document.getElementById('option-c')
-const option_d = document.getElementById('option-d')
-const next_button = document.getElementById('next')
+let data;
+let points = 0
+let answers = []
+
+const option_a = document.querySelector("#option-a")
+const option_b = document.querySelector("#option-b")
+const option_c = document.querySelector("#option-c")
+const option_d = document.querySelector("#option-d")
 const score = document.getElementById('result')
 
-loadDatas();       
+async function sendApiRequest(){
+    let response = await fetch("https://opentdb.com/api.php?amount=50&category=18&type=multiple");
+    data = await response.json()
+    useApiData(data)
+}
+
+function shuffle(array){
+    return array.sort(() => Math.random() - 0.3)
+}
 
 function if_answer_correct(id) {
-    let points = 0
     points += 10
     setTimeout(()=>{
         document.getElementById(id).style.backgroundColor = "#70af85";
         document.getElementById(id).style.borderColor = "#70af85";
         score.innerText = points
-        i++;
     },1000);   
 }
 function if_answer_incorrect(id) {
@@ -28,7 +33,7 @@ function if_answer_incorrect(id) {
         document.getElementById(id).style.backgroundColor = "#ff4646";
         document.getElementById(id).style.borderColor = "#ff4646" 
         for(let j = 0; j < 4; j++){
-            if (document.querySelectorAll(".options")[j].innerHTML == currentQuestion[i].correct_answer){
+            if (document.querySelectorAll(".options")[j].innerHTML == data.results[1].correct_answer){
                 document.querySelectorAll(".options")[j].style.backgroundColor = "#70af85"
                 document.querySelectorAll(".options")[j].style.borderColor = "#70af85"
             }
@@ -37,93 +42,75 @@ function if_answer_incorrect(id) {
     
 }
 
+function setDefaultAll(){
+    answers = []
+    document.querySelector("#question").innerHTML = ''
+    option_a.style.backgroundColor = "#eeeeee";
+    option_b.style.backgroundColor = "#eeeeee";
+    option_c.style.backgroundColor = "#eeeeee";
+    option_d.style.backgroundColor = "#eeeeee";
 
-async function loadDatas(){
-    await fetch('https://opentdb.com/api.php?amount=50&category=18&type=multiple')
-            .then(res => res.json())
-            .then(data => {
-                data['results'].forEach(item => currentQuestion.push(item));
-            })
-    
-    currentQuestion.entries
-    // test to correct answer
-    console.log("Correct answer: "+currentQuestion[i].correct_answer)
+    option_a.style.borderColor = "#eeeeee";
+    option_b.style.borderColor = "#eeeeee";
+    option_c.style.borderColor = "#eeeeee";
+    option_d.style.borderColor = "#eeeeee";
 
-    // question text 
-    console.log(i)
-    for(let ques of currentQuestion){
-        console.log(ques)
-    }
-    
-    question.innerHTML = currentQuestion[i].question;
-
-    // random selection to correct answer
-    let correct = Math.floor(Math.random() * 4) + 1;
-
-    // every options has id i.e. 1,2,3,4
-    if (correct == 1)
-        option_a.innerHTML = currentQuestion[i].correct_answer
-    else if (correct == 2)
-        option_b.innerHTML = currentQuestion[i].correct_answer
-    else if (correct == 3)
-        option_c.innerHTML = currentQuestion[i].correct_answer
-    else if (correct == 4)
-        option_d.innerHTML = currentQuestion[i].correct_answer
-    
-    // if options has correct answer then its incorrect answer 
-    for (let incorrect of currentQuestion[i].incorrect_answers){
-        if (option_a.innerHTML == '')
-            option_a.innerHTML = incorrect
-        else if (option_b.innerHTML == '')
-            option_b.innerHTML = incorrect
-        else if (option_c.innerHTML == '')
-            option_c.innerHTML = incorrect
-        else if (option_d.innerHTML == '')
-            option_d.innerHTML = incorrect
-    }
-
+    option_a.innerHTML = ''
+    option_b.innerHTML = ''
+    option_c.innerHTML = ''
+    option_d.innerHTML = ''
 }
 
-next_button.addEventListener("click", () => {
-    i += 1
+
+function useApiData(){
+    setDefaultAll();
+    document.querySelector("#question").innerHTML = data.results[1].question
+    answers.push(data.results[1].correct_answer)
+    answers.push(data.results[1].incorrect_answers[0])
+    answers.push(data.results[1].incorrect_answers[1])
+    answers.push(data.results[1].incorrect_answers[2])
+    console.log("Correct answer: "+data.results[1].correct_answer)
+    shuffle(answers)
+    option_a.innerHTML = answers[0]
+    option_b.innerHTML = answers[1]
+    option_c.innerHTML = answers[2]
+    option_d.innerHTML = answers[3]
+}
+
+option_a.addEventListener("click", () => {
+    if (option_a.innerHTML == data.results[1].correct_answer){
+        if_answer_correct("option-a")
+    }else{
+        if_answer_incorrect("option-a")
+    }
+    setTimeout(() => sendApiRequest(),1000)
+    
 })
 
-option_a.addEventListener("click",() => {
-    option_b.disabled = true
-    option_c.disabled = true
-    option_d.disabled = true
-    if (option_a.innerText == currentQuestion[i].correct_answer)
-        return if_answer_correct("option-a")
-    else
-        return if_answer_incorrect("option-a")
-})
-option_b.addEventListener("click",() => {
-    option_a.disabled = true
-    option_c.disabled = true
-    option_d.disabled = true
-    if (option_b.innerText == currentQuestion[i].correct_answer)
-        return if_answer_correct("option-b")
-    else
-        return if_answer_incorrect("option-b")
-})
-option_c.addEventListener("click",() => {
-    option_a.disabled = true
-    option_b.disabled = true
-    option_d.disabled = true
-    if (option_c.innerText == currentQuestion[i].correct_answer)
-        return if_answer_correct("option-c")
-    else
-        return if_answer_incorrect("option-c")
-})
-option_d.addEventListener("click",() => {
-    option_a.disabled = true
-    option_b.disabled = true
-    option_c.disabled = true
-    if (option_d.innerText == currentQuestion[i].correct_answer)
-        return if_answer_correct("option-d")
-    else
-        return if_answer_incorrect("option-d")
+option_b.addEventListener("click", () => {
+    if (option_b.innerHTML == data.results[1].correct_answer){
+        if_answer_correct("option-b")
+    }else{
+        if_answer_incorrect("option-b")
+    }
+    setTimeout(() => sendApiRequest(),1000)
 })
 
+option_c.addEventListener("click", () => {
+    if (option_c.innerHTML == data.results[1].correct_answer){
+        if_answer_correct("option-c")
+    }else{
+        if_answer_incorrect("option-c")
+    }
+    setTimeout(() => sendApiRequest(),1000)
+})
 
+option_d.addEventListener("click", () => {
+    if (option_d.innerHTML == data.results[1].correct_answer){
+        if_answer_correct("option-d")
+    }else{
+        if_answer_incorrect("option-d")
+    }
+    setTimeout(() => sendApiRequest(),1000)
+})
 
