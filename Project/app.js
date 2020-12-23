@@ -78,39 +78,39 @@ function useApiData(){
 }
 
 option_a.addEventListener("click", () => {
-    if (option_a.innerHTML == data.results[1].correct_answer){
+    if (option_a.innerHTML == data.results[1].correct_answer)
         if_answer_correct("option-a")
-    }else{
+    else
         if_answer_incorrect("option-a")
-    }
+    
     setTimeout(() => sendApiRequest(),1000)
     
 })
 
 option_b.addEventListener("click", () => {
-    if (option_b.innerHTML == data.results[1].correct_answer){
+    if (option_b.innerHTML == data.results[1].correct_answer)
         if_answer_correct("option-b")
-    }else{
+    else
         if_answer_incorrect("option-b")
-    }
+    
     setTimeout(() => sendApiRequest(),1000)
 })
 
 option_c.addEventListener("click", () => {
-    if (option_c.innerHTML == data.results[1].correct_answer){
+    if (option_c.innerHTML == data.results[1].correct_answer)
         if_answer_correct("option-c")
-    }else{
+    else
         if_answer_incorrect("option-c")
-    }
+    
     setTimeout(() => sendApiRequest(),1000)
 })
 
 option_d.addEventListener("click", () => {
-    if (option_d.innerHTML == data.results[1].correct_answer){
+    if (option_d.innerHTML == data.results[1].correct_answer)
         if_answer_correct("option-d")
-    }else{
+    else
         if_answer_incorrect("option-d")
-    }
+    
     setTimeout(() => sendApiRequest(),1000)
 })
 

@@ -10,7 +10,7 @@ body{
     align-items: center;
     justify-content: center;
     font-family: 'Montserrat';
-    background-color: #cbbcb1;
+    background-color: #70af85;
  }
 .question-box{
     width: 500px;
@@ -28,7 +28,7 @@ body{
     align-items: center;
     padding: 1rem 1rem 0 1rem;
     background-color: #eeeeee;
-    justify-content: space-between;
+    justify-content: center;
 }
 #next{
     height: 30;
@@ -43,8 +43,8 @@ body{
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
 }
 #next:hover{
-    border-color: #c7beb8;
-    background-color: #c7beb8;
+    border-color: #7baf8c;
+    background-color: #7baf8c;
 }
 .score{
     padding-top: 2px;
@@ -52,7 +52,7 @@ body{
     width: 120px;
     font-size: 15;
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 10px;
     border-radius: 10px;
     border-style: solid;
     font-family: inherit;
@@ -105,23 +105,3 @@ label{
     cursor: pointer;
 }
 
-#submitBtn{
-    height: 50;
-    width: 100%;
-    font-size: 18;
-    border: none;
-    color: white;
-    display: block;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: inherit;
-    padding: 10px 0 10px 0;
-    transition-duration: 0.4s;
-    background-color: #16697a;
-}
-#submitBtn:focus{
-    outline: none;
-}
-#submitBtn:hover{
-    background-color: #394867;
-}
