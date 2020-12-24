@@ -157,13 +157,14 @@ function showProfile() {
     image.src = p.getImageUrl()
     user.innerText = p.getEmail()
 }
-function removeFile(fileID){
-  gapi.client.drive.files.delete({fileID}).then(execute,error)
+function removeFile(fileId){
+  gapi.client.drive.files.delete({fileId}).then(execute,error)
 }
-function displayFile(fileID){
-  gapi.client.drive.files.get({fileID, alt: "media"})
+function displayFile(fileId){
+  gapi.client.drive.files.get({fileId, alt: "media"})
       .then(r => data.innerText = r.body, error)
 }
+
 
 const reader = new FileReader(),
   apiKey = 'AIzaSyDwmHYGizP2zcKI64lS4540IVSRVEOpwa0',
@@ -174,6 +175,7 @@ async function init() {
     if (currentUser().getId()) try {
       showFiles()                                       
     } catch (e) { error(e) }
+
     out.onclick = (e) => {
     let t = e.target
     if (!t || !t.id) return
