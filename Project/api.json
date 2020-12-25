@@ -7,9 +7,10 @@
         "difficulty": "easy",
         "question": "In any programming language, what is the most common way to iterate through an array?",
         "correct_answer": "'For' loops",
-        "incorrect_answers": [
+        "answers": [
           "'If' Statements",
           "'Do-while' loops",
+          "'For' loops",
           "'While' loops"
         ]
       },
@@ -19,9 +20,10 @@
         "difficulty": "easy",
         "question": "What does CPU stand for?",
         "correct_answer": "Central Processing Unit",
-        "incorrect_answers": [
+        "answers": [
           "Central Process Unit",
           "Computer Personal Unit",
+          "Central Processing Unit",
           "Central Processor Unit"
         ]
       },
@@ -31,10 +33,11 @@
         "difficulty": "hard",
         "question": "What was the name of the security vulnerability found in Bash in 2014?",
         "correct_answer": "Shellshock",
-        "incorrect_answers": [
+        "answers": [
           "Heartbleed",
           "Bashbug",
-          "Stagefright"
+          "Stagefright",
+          "Shellshock"
         ]
       },
       {
@@ -43,8 +46,9 @@
         "difficulty": "easy",
         "question": "When Gmail first launched, how much storage did it provide for your email?",
         "correct_answer": "1GB",
-        "incorrect_answers": [
+        "answers": [
           "512MB",
+          "1GB",
           "5GB",
           "Unlimited"
         ]
@@ -55,9 +59,10 @@
         "difficulty": "medium",
         "question": "Moore's law originally stated that the number of transistors on a microprocessor chip would double every...",
         "correct_answer": "Year",
-        "incorrect_answers": [
+        "answers": [
           "Four Years",
           "Two Years",
+          "Year",
           "Eight Years"
         ]
       },
@@ -67,10 +72,11 @@
         "difficulty": "easy",
         "question": "HTML is what type of language?",
         "correct_answer": "Markup Language",
-        "incorrect_answers": [
+        "answers": [
           "Macro Language",
           "Programming Language",
-          "Scripting Language"
+          "Scripting Language",
+          "Markup Language"
         ]
       },
       {
@@ -79,7 +85,8 @@
         "difficulty": "medium",
         "question": "What five letter word is the motto of the IBM Computer company?",
         "correct_answer": "Think",
-        "incorrect_answers": [
+        "answers": [
+          "Think",
           "Click",
           "Logic",
           "Pixel"
@@ -91,8 +98,9 @@
         "difficulty": "easy",
         "question": "What amount of bits commonly equals one byte?",
         "correct_answer": "8",
-        "incorrect_answers": [
+        "answers": [
           "1",
+          "8",
           "2",
           "64"
         ]
@@ -103,10 +111,11 @@
         "difficulty": "hard",
         "question": "How many Hz does the video standard PAL support?",
         "correct_answer": "50",
-        "incorrect_answers": [
+        "answers": [
           "59",
           "60",
-          "25"
+          "25",
+          "50"
         ]
       },
       {
@@ -115,9 +124,10 @@
         "difficulty": "easy",
         "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
         "correct_answer": "Motherboard",
-        "incorrect_answers": [
+        "answers": [
           "Central Processing Unit",
           "Hard Disk Drive",
+          "Motherboard",
           "Random Access Memory"
         ]
       },
@@ -127,8 +137,9 @@
         "difficulty": "easy",
         "question": "If you were to code software in this language you'd only be able to type 0's and 1's.",
         "correct_answer": "Binary",
-        "incorrect_answers": [
+        "answers": [
           "JavaScript",
+          "Binary",
           "C++",
           "Python"
         ]
@@ -139,7 +150,8 @@
         "difficulty": "easy",
         "question": "The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called:",
         "correct_answer": "HD Graphics 500",
-        "incorrect_answers": [
+        "answers": [
+          "HD Graphics 500",
           "HD Graphics 700 ",
           "HD Graphics 600",
           "HD Graphics 7000"
@@ -151,10 +163,11 @@
         "difficulty": "medium",
         "question": "What was the first commerically available computer processor?",
         "correct_answer": "Intel 4004",
-        "incorrect_answers": [
+        "answers": [
           "Intel 486SX",
           "TMS 1000",
-          "AMD AM386"
+          "AMD AM386",
+          "Intel 4004"
         ]
       },
       {
@@ -163,10 +176,11 @@
         "difficulty": "medium",
         "question": "While Apple was formed in California, in which western state was Microsoft founded?",
         "correct_answer": "New Mexico",
-        "incorrect_answers": [
+        "answers": [
           "Washington",
           "Colorado",
-          "Arizona"
+          "Arizona",
+          "New Mexico"
         ]
       },
       {
@@ -175,8 +189,9 @@
         "difficulty": "medium",
         "question": "What does the acronym CDN stand for in terms of networking?",
         "correct_answer": "Content Delivery Network",
-        "incorrect_answers": [
+        "answers": [
           "Content Distribution Network",
+          "Content Delivery Network",
           "Computational Data Network",
           "Compressed Data Network"
         ]
@@ -187,9 +202,10 @@
         "difficulty": "easy",
         "question": "How many kilobytes in one gigabyte (in decimal)?",
         "correct_answer": "1000000",
-        "incorrect_answers": [
+        "answers": [
           "1024",
           "1000",
+          "1000000",
           "1048576"
         ]
       },
@@ -199,8 +215,9 @@
         "difficulty": "medium",
         "question": "In the server hosting industry IaaS stands for...",
         "correct_answer": "Infrastructure as a Service",
-        "incorrect_answers": [
+        "answers": [
           "Internet as a Service",
+          "Infrastructure as a Service",
           "Internet and a Server",
           "Infrastructure as a Server"
         ]
@@ -211,7 +228,8 @@
         "difficulty": "medium",
         "question": "What is the name of the default theme that is installed with Windows XP?",
         "correct_answer": "Luna",
-        "incorrect_answers": [
+        "answers": [
+          "Luna",
           "Neptune",
           "Whistler",
           "Bliss"
@@ -223,10 +241,11 @@
         "difficulty": "easy",
         "question": "On Twitter, what is the character limit for a Tweet?",
         "correct_answer": "140",
-        "incorrect_answers": [
+        "answers": [
           "120",
           "160",
-          "100"
+          "100",
+          "140"
         ]
       },
       {
@@ -235,10 +254,11 @@
         "difficulty": "medium",
         "question": "In the programming language 'Python', which of these statements would display the string 'Hello World' correctly?",
         "correct_answer": "print('Hello World')",
-        "incorrect_answers": [
+        "answers": [
           "console.log('Hello World')",
           "echo 'Hello World'",
-          "printf('Hello World')"
+          "printf('Hello World')",
+          "print('Hello World')"
         ]
       },
       {
@@ -246,11 +266,12 @@
         "type": "multiple",
         "difficulty": "medium",
         "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
-        "correct_answer": "&lt;marquee&gt;&lt;/marquee&gt;",
-        "incorrect_answers": [
-          "&lt;scroll&gt;&lt;/scroll&gt;",
-          "&lt;move&gt;&lt;/move&gt;",
-          "&lt;slide&gt;&lt;/slide&gt;"
+        "correct_answer": "<marquee></marquee>",
+        "answers": [
+          "<scroll></scroll>",
+          "<marquee></marquee>",
+          "<move></move>",
+          "<slide></slide>"
         ]
       },
       {
@@ -259,7 +280,8 @@
         "difficulty": "hard",
         "question": "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
         "correct_answer": "Heartbleed",
-        "incorrect_answers": [
+        "answers": [
+          "Heartbleed",
           "Shellshock",
           "Corrupted Blood",
           "Shellscript"
@@ -271,10 +293,11 @@
         "difficulty": "medium",
         "question": "What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
         "correct_answer": "Heat Sink",
-        "incorrect_answers": [
+        "answers": [
           "CPU Vent",
           "Temperature Decipator",
-          "Heat Vent"
+          "Heat Vent",
+          "Heat Sink"
         ]
       },
       {
@@ -283,10 +306,11 @@
         "difficulty": "medium",
         "question": "In programming, the ternary operator is mostly defined with what symbol(s)?",
         "correct_answer": "?:",
-        "incorrect_answers": [
+        "answers": [
           "??",
           "if then",
-          "?"
+          "?",
+          "?:"
         ]
       },
       {
@@ -295,9 +319,10 @@
         "difficulty": "medium",
         "question": "In computing terms, typically what does CLI stand for?",
         "correct_answer": "Command Line Interface",
-        "incorrect_answers": [
+        "answers": [
           "Common Language Input",
           "Control Line Interface",
+          "Command Line Interface",
           "Common Language Interface"
         ]
       },
@@ -305,9 +330,10 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What does &quot;LCD&quot; stand for?",
+        "question": "What does 'LCD' stand for?",
         "correct_answer": "Liquid Crystal Display",
-        "incorrect_answers": [
+        "answers": [
+          "Liquid Crystal Display",
           "Language Control Design",
           "Last Common Difference",
           "Long Continuous Design"
@@ -319,9 +345,10 @@
         "difficulty": "medium",
         "question": ".rs is the top-level domain for what country?",
         "correct_answer": "Serbia",
-        "incorrect_answers": [
+        "answers": [
           "Romania",
           "Russia",
+          "Serbia",
           "Rwanda"
         ]
       },
@@ -331,10 +358,11 @@
         "difficulty": "medium",
         "question": ".at is the top-level domain for what country?",
         "correct_answer": "Austria",
-        "incorrect_answers": [
+        "answers": [
           "Argentina",
           "Australia",
-          "Angola"
+          "Angola",
+          "Austria"
         ]
       },
       {
@@ -343,8 +371,9 @@
         "difficulty": "easy",
         "question": "The numbering system with a radix of 16 is more commonly referred to as ",
         "correct_answer": "Hexidecimal",
-        "incorrect_answers": [
+        "answers": [
           "Binary",
+          "Hexidecimal",
           "Duodecimal",
           "Octal"
         ]
@@ -353,11 +382,12 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What is known as &quot;the brain&quot; of the Computer?",
+        "question": "What is known as 'the brain' of the Computer?",
         "correct_answer": "Central Processing Unit",
-        "incorrect_answers": [
+        "answers": [
           "Motherboard",
           "Graphics Processing Unit",
+          "Central Processing Unit",
           "Keyboard"
         ]
       },
@@ -367,7 +397,8 @@
         "difficulty": "hard",
         "question": "What is the name of the process that sends one qubit of information using two bits of classical information?",
         "correct_answer": "Quantum Teleportation",
-        "incorrect_answers": [
+        "answers": [
+          "Quantum Teleportation",
           "Super Dense Coding",
           "Quantum Entanglement",
           "Quantum Programming"
@@ -379,10 +410,11 @@
         "difficulty": "hard",
         "question": "America Online (AOL) started out as which of these online service providers?",
         "correct_answer": "Quantum Link",
-        "incorrect_answers": [
+        "answers": [
           "CompuServe",
           "Prodigy",
-          "GEnie"
+          "GEnie",
+          "Quantum Link"
         ]
       },
       {
@@ -391,7 +423,8 @@
         "difficulty": "hard",
         "question": "Which of these is not a key value of Agile software development?",
         "correct_answer": "Comprehensive documentation",
-        "incorrect_answers": [
+        "answers": [
+          "Comprehensive documentation",
           "Individuals and interactions",
           "Customer collaboration",
           "Responding to change"
@@ -403,9 +436,10 @@
         "difficulty": "medium",
         "question": "What is the main CPU is the Sega Mega Drive / Sega Genesis?",
         "correct_answer": "Motorola 68000",
-        "incorrect_answers": [
+        "answers": [
           "Zilog Z80",
           "Yamaha YM2612",
+          "Motorola 68000",
           "Intel 8088"
         ]
       },
@@ -415,7 +449,8 @@
         "difficulty": "easy",
         "question": "This mobile OS held the largest market share in 2012.",
         "correct_answer": "iOS",
-        "incorrect_answers": [
+        "answers": [
+          "iOS",
           "Android",
           "BlackBerry",
           "Symbian"
@@ -427,8 +462,9 @@
         "difficulty": "medium",
         "question": "What was the first Android version specifically optimized for tablets?",
         "correct_answer": "Honeycomb",
-        "incorrect_answers": [
+        "answers": [
           "Eclair",
+          "Honeycomb",
           "Froyo",
           "Marshmellow"
         ]
@@ -439,10 +475,11 @@
         "difficulty": "hard",
         "question": "Which RAID array type is associated with data mirroring?",
         "correct_answer": "RAID 1",
-        "incorrect_answers": [
+        "answers": [
           "RAID 0",
           "RAID 10",
-          "RAID 5"
+          "RAID 5",
+          "RAID 1"
         ]
       },
       {
@@ -451,9 +488,10 @@
         "difficulty": "medium",
         "question": "Laserjet and inkjet printers are both examples of what type of printer?",
         "correct_answer": "Non-impact printer",
-        "incorrect_answers": [
+        "answers": [
           "Impact printer",
           "Daisywheel printer",
+          "Non-impact printer",
           "Dot matrix printer"
         ]
       },
@@ -463,7 +501,7 @@
         "difficulty": "easy",
         "question": "How many values can a single byte represent?",
         "correct_answer": "256",
-        "incorrect_answers": [
+        "answers": [
           "8",
           "1",
           "1024"
@@ -473,10 +511,11 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Released in 2001, the first edition of Apple&#039;s Mac OS X operating system (version 10.0) was given what animal code name?",
+        "question": "Released in 2001, the first edition of Apple's Mac OS X operating system (version 10.0) was given what animal code name?",
         "correct_answer": "Cheetah",
-        "incorrect_answers": [
+        "answers": [
           "Puma",
+          "Cheetah",
           "Tiger",
           "Leopard"
         ]
@@ -487,7 +526,8 @@
         "difficulty": "hard",
         "question": "Dutch computer scientist Mark Overmars is known for creating which game development engine?",
         "correct_answer": "Game Maker",
-        "incorrect_answers": [
+        "answers": [
+          "Game Maker",
           "Stencyl",
           "Construct",
           "Torque 2D"
@@ -499,10 +539,11 @@
         "difficulty": "easy",
         "question": "The C programming language was created by this American computer scientist. ",
         "correct_answer": "Dennis Ritchie",
-        "incorrect_answers": [
+        "answers": [
           "Tim Berners Lee",
           "al-Khwārizmī",
-          "Willis Ware"
+          "Willis Ware",
+          "Dennis Ritchie",
         ]
       },
       {
@@ -511,8 +552,9 @@
         "difficulty": "hard",
         "question": "What is the name given to layer 4 of the Open Systems Interconnection (ISO) model?",
         "correct_answer": "Transport",
-        "incorrect_answers": [
+        "answers": [
           "Session",
+          "Transport",
           "Data link",
           "Network"
         ]
@@ -523,7 +565,8 @@
         "difficulty": "easy",
         "question": "Which programming language shares its name with an island in Indonesia?",
         "correct_answer": "Java",
-        "incorrect_answers": [
+        "answers": [
+          "Java",
           "Python",
           "C",
           "Jakarta"
@@ -535,10 +578,11 @@
         "difficulty": "easy",
         "question": "In computing, what does MIDI stand for?",
         "correct_answer": "Musical Instrument Digital Interface",
-        "incorrect_answers": [
+        "answers": [
           "Musical Interface of Digital Instruments",
           "Modular Interface of Digital Instruments",
-          "Musical Instrument Data Interface"
+          "Musical Instrument Data Interface",
+          "Musical Instrument Digital Interface"
         ]
       },
       {
@@ -547,9 +591,10 @@
         "difficulty": "easy",
         "question": "In computing, what does LAN stand for?",
         "correct_answer": "Local Area Network",
-        "incorrect_answers": [
+        "answers": [
           "Long Antenna Node",
           "Light Access Node",
+          "Local Area Network",
           "Land Address Navigation"
         ]
       },
@@ -559,9 +604,10 @@
         "difficulty": "medium",
         "question": "How many bytes are in a single Kibibyte?",
         "correct_answer": "1024",
-        "incorrect_answers": [
+        "answers": [
           "2400",
           "1000",
+          "1024",
           "1240"
         ]
       },
@@ -571,8 +617,9 @@
         "difficulty": "hard",
         "question": "What was the name of the first Bulgarian personal computer?",
         "correct_answer": "IMKO-1",
-        "incorrect_answers": [
+        "answers": [
           "Pravetz 82",
+          "IMKO-1",
           "Pravetz 8D",
           "IZOT 1030"
         ]
@@ -583,9 +630,10 @@
         "difficulty": "medium",
         "question": "Unix Time is defined as the number of seconds that have elapsed since when?",
         "correct_answer": "Midnight, January 1, 1970",
-        "incorrect_answers": [
+        "answers": [
           "Midnight, July 4, 1976",
-          "Midnight on the creator of Unix&#039;s birthday",
+          "Midnight, January 1, 1970",
+          "Midnight on the creator of Unix's birthday",
           "Midnight, July 4, 1980"
         ]
       },
@@ -595,8 +643,9 @@
         "difficulty": "hard",
         "question": "Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?",
         "correct_answer": "Cherry MX Blue",
-        "incorrect_answers": [
+        "answers": [
           "Cherry MX Black",
+          "Cherry MX Blue",
           "Cherry MX Red",
           "Cherry MX Brown"
         ]
