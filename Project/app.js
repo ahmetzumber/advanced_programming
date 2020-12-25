@@ -650,16 +650,17 @@ const datas = [
     }
 ]
 let points = 0
-let questionIndex = 0
+let wrongAnswerNumber = 0
 
 const option_a = document.querySelector("#option-a")
 const option_b = document.querySelector("#option-b")
 const option_c = document.querySelector("#option-c")
 const option_d = document.querySelector("#option-d")
 const score = document.getElementById('result')
+const answers = document.querySelectorAll('.options')
 
 function shuffle(array){
-    return array.sort(() => Math.random() - 0.3)
+    return array.sort(() => Math.random() - 0.5)
 }
 
 function if_answer_correct(id) {
@@ -668,10 +669,11 @@ function if_answer_correct(id) {
         document.getElementById(id).style.backgroundColor = "#70af85";
         document.getElementById(id).style.borderColor = "#70af85";
         score.innerText = points
-    },3000);  
+    },2000);  
 }
 function if_answer_incorrect(id) {
     setTimeout(()=>{
+        wrongAnswerNumber += 1
         document.getElementById(id).style.backgroundColor = "#ff4646";
         document.getElementById(id).style.borderColor = "#ff4646" 
         for(let j = 0; j < 4; j++){
@@ -680,27 +682,19 @@ function if_answer_incorrect(id) {
                 document.querySelectorAll(".options")[j].style.borderColor = "#70af85"
             }
         }
-    },3000);
+    },2000);
 }
 
 function setDefaultAll(){
     document.querySelector("#question").innerHTML = ''
-    option_a.style.backgroundColor = "#eeeeee";
-    option_b.style.backgroundColor = "#eeeeee";
-    option_c.style.backgroundColor = "#eeeeee";
-    option_d.style.backgroundColor = "#eeeeee";
-
-    option_a.style.borderColor = "#eeeeee";
-    option_b.style.borderColor = "#eeeeee";
-    option_c.style.borderColor = "#eeeeee";
-    option_d.style.borderColor = "#eeeeee";
-
-    option_a.innerHTML = ''
-    option_b.innerHTML = ''
-    option_c.innerHTML = ''
-    option_d.innerHTML = ''
+    answers.forEach(item => {
+      item.style.backgroundColor = "#eeeeee" 
+      item.style.borderColor = "#eeeeee"
+      item.innerHTML = ''
+    })
 }
 
+let questionIndex = 0
 
 function loadQuestions(){
     setDefaultAll();
@@ -743,12 +737,5 @@ option_d.addEventListener("click", () => {
     }else
         if_answer_incorrect("option-d")
 })
-/* function answerCheck(){
-    for(let j = 0; j < 4; j++){
-        if (document.querySelectorAll(".options")[j].clicked==true && document.querySelectorAll(".options")[j].innerHTML == datas[questionIndex].correct_answer){
-            questionIndex++;
-        }
-    }
-} */
 
 loadQuestions();
