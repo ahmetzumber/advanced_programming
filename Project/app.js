@@ -262,19 +262,6 @@ const datas = [
     {
       "category": "Science: Computers",
       "type": "multiple",
-      "difficulty": "medium",
-      "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
-      "correct_answer": "<marquee></marquee>",
-      "answers": [
-        "<scroll></scroll>",
-        "<marquee></marquee>",
-        "<move></move>",
-        "<slide></slide>"
-      ]
-    },
-    {
-      "category": "Science: Computers",
-      "type": "multiple",
       "difficulty": "hard",
       "question": "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
       "correct_answer": "Heartbleed",
@@ -650,14 +637,16 @@ const datas = [
     }
 ]
 let points = 0
+let questionIndex = 0
 let wrongAnswerNumber = 0
-
+  
 const option_a = document.querySelector("#option-a")
 const option_b = document.querySelector("#option-b")
 const option_c = document.querySelector("#option-c")
 const option_d = document.querySelector("#option-d")
 const score = document.getElementById('result')
 const answers = document.querySelectorAll('.options')
+const next_button = document.querySelector("#next")
 
 function shuffle(array){
     return array.sort(() => Math.random() - 0.5)
@@ -669,7 +658,10 @@ function if_answer_correct(id) {
         document.getElementById(id).style.backgroundColor = "#70af85";
         document.getElementById(id).style.borderColor = "#70af85";
         score.innerText = points
-    },2000);  
+        questionIndex++;
+        setTimeout(() => loadQuestions(),1000)
+        console.log(questionIndex)
+      },2000);        
 }
 function if_answer_incorrect(id) {
     setTimeout(()=>{
@@ -694,22 +686,25 @@ function setDefaultAll(){
     })
 }
 
-let questionIndex = 0
-
 function loadQuestions(){
     setDefaultAll();
     shuffle(datas)
     document.querySelector("#question").innerHTML = datas[questionIndex].question
+    console.log("Correct answer: "+datas[questionIndex].correct_answer)
     option_a.innerHTML = datas[questionIndex].answers[0]
     option_b.innerHTML = datas[questionIndex].answers[1]
     option_c.innerHTML = datas[questionIndex].answers[2]
     option_d.innerHTML = datas[questionIndex].answers[3]
 }
 
+next_button.addEventListener("click", () => {
+  questionIndex++;
+  setTimeout(() => loadQuestions(),1000)
+})
+
 option_a.addEventListener("click", () => {
     if (option_a.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-a")
-        questionIndex++;
     }else
         if_answer_incorrect("option-a")
 })
@@ -717,7 +712,6 @@ option_a.addEventListener("click", () => {
 option_b.addEventListener("click", () => {
     if (option_b.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-b")
-        questionIndex++;
     }else
         if_answer_incorrect("option-b")
 })
@@ -725,17 +719,16 @@ option_b.addEventListener("click", () => {
 option_c.addEventListener("click", () => {
     if (option_c.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-c")   
-        questionIndex++;   
+         
     }else
         if_answer_incorrect("option-c")
-})<
+})
 
 option_d.addEventListener("click", () => {
     if (option_d.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-d")
-        questionIndex++;
     }else
         if_answer_incorrect("option-d")
 })
 
-loadQuestions();
+loadQuestions(); 

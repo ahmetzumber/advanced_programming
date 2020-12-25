@@ -42,10 +42,7 @@ body{
     border-color: #eeeeee;
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
 }
-#next:hover{
-    border-color: #7baf8c;
-    background-color: #7baf8c;
-}
+
 .score{
     padding-top: 2px;
     height: 30;
