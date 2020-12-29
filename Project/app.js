@@ -654,27 +654,23 @@ function shuffle(array){
 
 function if_answer_correct(id) {
     points += 10
-    setTimeout(()=>{
-        document.getElementById(id).style.backgroundColor = "#70af85";
-        document.getElementById(id).style.borderColor = "#70af85";
-        score.innerText = points
-        questionIndex++;
-        setTimeout(() => loadQuestions(),1000)
-        console.log(questionIndex)
-      },2000);        
+    document.getElementById(id).style.backgroundColor = "#70af85";
+    document.getElementById(id).style.borderColor = "#70af85";
+    score.innerText = points
+    questionIndex++;
+    console.log(questionIndex)
+             
 }
 function if_answer_incorrect(id) {
-    setTimeout(()=>{
-        wrongAnswerNumber += 1
-        document.getElementById(id).style.backgroundColor = "#ff4646";
-        document.getElementById(id).style.borderColor = "#ff4646" 
-        for(let j = 0; j < 4; j++){
-            if (document.querySelectorAll(".options")[j].innerHTML == datas[questionIndex].correct_answer){
-                document.querySelectorAll(".options")[j].style.backgroundColor = "#70af85"
-                document.querySelectorAll(".options")[j].style.borderColor = "#70af85"
-            }
+    wrongAnswerNumber += 1
+    document.getElementById(id).style.backgroundColor = "#ff4646";
+    document.getElementById(id).style.borderColor = "#ff4646" 
+    for(let j = 0; j < 4; j++){
+        if (document.querySelectorAll(".options")[j].innerHTML == datas[questionIndex].correct_answer){
+            document.querySelectorAll(".options")[j].style.backgroundColor = "#70af85"
+            document.querySelectorAll(".options")[j].style.borderColor = "#70af85"
         }
-    },2000);
+    }
 }
 
 function setDefaultAll(){
@@ -690,6 +686,7 @@ function loadQuestions(){
     setDefaultAll();
     shuffle(datas)
     document.querySelector("#question").innerHTML = datas[questionIndex].question
+    document.getElementById('remaining').innerText = `${questionIndex}/${datas.length}`
     console.log("Correct answer: "+datas[questionIndex].correct_answer)
     option_a.innerHTML = datas[questionIndex].answers[0]
     option_b.innerHTML = datas[questionIndex].answers[1]
@@ -699,7 +696,7 @@ function loadQuestions(){
 
 next_button.addEventListener("click", () => {
   questionIndex++;
-  setTimeout(() => loadQuestions(),1000)
+  loadQuestions();
 })
 
 option_a.addEventListener("click", () => {

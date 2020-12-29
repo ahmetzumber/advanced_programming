@@ -14,9 +14,11 @@ body{
  }
 .question-box{
     width: 500px;
+    height: 400px;
     max-width: 90%;
     overflow: hidden;
     border-radius: 20px;
+    background-color: #eeeeee;
     box-shadow: 1px 1px 6px 1px rgba(0.5, 0.5, 0.2, 0.5);
     font-family: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 }
@@ -32,30 +34,56 @@ body{
 }
 #next{
     height: 30;
-    width: 110px;
+    width: 50px;
+    outline: none;
     font-size: 15px;
-    margin-top: 20px;
-    margin-right: 50px;
+    margin:20px;
+    
+    margin-top: 40px;
     border-radius: 10px;
     border-style: solid;
     font-family: inherit;
     border-color: #eeeeee;
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+}
+#next:active {
+    background-color: #eeeeee;
+    box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+    transform: translateY(4px);
 }
 
 .score{
     padding-top: 2px;
     height: 30;
-    width: 110px;
+    width: 80px;
     font-size: 15;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin:20px;
+    margin-top: 40px;
     border-radius: 10px;
     border-style: solid;
     font-family: inherit;
     border-color: #eeeeee;
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
 }
+#question-num{
+    padding-top: 2px;
+    height: 30;
+    width: 140px;
+    font-size: 15;
+    margin: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family: inherit;
+    border-color: #eeeeee;
+    box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2); 
+}
+#remaining{
+    font-size: 15;
+    margin-top: 20px;
+    margin-left: 3px;
+}
+
 .options{
     width: 100%;
     height: 25px;
@@ -64,7 +92,13 @@ body{
     border-style: solid;
     font-family: inherit;
     border-color: #eeeeee;
+    outline: none;
     box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+}
+.options:active {
+    background-color: #eeeeee;
+    box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+    transform: translateY(4px);
 }
 
 #result{
