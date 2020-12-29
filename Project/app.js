@@ -657,9 +657,6 @@ function if_answer_correct(id) {
     document.getElementById(id).style.backgroundColor = "#70af85";
     document.getElementById(id).style.borderColor = "#70af85";
     score.innerText = points
-    questionIndex++;
-    console.log(questionIndex)
-             
 }
 function if_answer_incorrect(id) {
     wrongAnswerNumber += 1

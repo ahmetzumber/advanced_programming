@@ -107,7 +107,8 @@ body{
     margin-left: 3px;
 }
 img {
-    margin: 10px;
+    height: 100%;
+    margin: 100%;
     width: 15px;
 }
 
