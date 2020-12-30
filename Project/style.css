@@ -10,11 +10,11 @@ body{
     align-items: center;
     justify-content: center;
     font-family: 'Montserrat';
-    background-color: #70af85;
+    background-color: #583d72;
  }
 .question-box{
     width: 500px;
-    height: 400px;
+    height: 350px;
     max-width: 90%;
     overflow: hidden;
     border-radius: 20px;

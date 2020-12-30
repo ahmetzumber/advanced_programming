@@ -668,6 +668,9 @@ function if_answer_incorrect(id) {
             document.querySelectorAll(".options")[j].style.borderColor = "#70af85"
         }
     }
+    if(wrongAnswerNumber == 2){
+      window.location.href = "./finish.html"
+    }
 }
 
 function setDefaultAll(){

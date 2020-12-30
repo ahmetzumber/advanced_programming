@@ -8,22 +8,25 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
             .question-box {
-                height: 350px;
+                height: 300px;
                 max-height: 70%;
                 padding: 40px;
                 text-align: center;
                 justify-content: space-between;
             }
-            #description {
-                margin-top: 10px;
+            h1{ 
+                margin: 20px 20px 30px 20px;
+            }
+            #desc{
+                margin:20px;
             }
             button{     
-                width: 80%;
-                margin:20px;
-                margin-top: 50px;
-                height: 50px;
+                width: 45%;
+                height: 30px;
                 outline: none;
                 font-size: 15px;
+                margin-top: 20px;
+                margin-left: 10px;
                 border-radius: 10px;
                 border-style: solid;
                 font-family: inherit;
@@ -32,36 +35,27 @@
             }
             button:active {
                 background-color: #eeeeee;
-                box-shadow: 1px 1px 3px 1px rgba(0.2, 0.2, 0.1, 0.2);
+                box-shadow: 1px 1px 3px 1px rgba(0.3, 0.3, 0.2, 0.3);
                 transform: translateY(4px);
             }
             a{ 
                 color: black;
                 text-decoration: none;
             }
-            p{ margin-top: 10px;}
             footer{
                 color:gray;
-                margin-top: 20px;
+                margin-top: 40px;
                 font-size: 10px;
             }
         </style>
     </head>
     <body>
         <div class="question-box">
-            <div id="description">Hello, the content of this question 
-                                  application is for computer engineers. 
-                                  Each question has 4 options and you have the right to 
-                                  make a total of 2 mistakes.You can switch to the next 
-                                  question by pressing the next button. Have fun !</div>
+            <h1>GAME OVER</h1>
+            <div id="desc">You answered wrong 2 questions </div>
+                <button onclick="window.location.href='./index.html'">TRY AGAIN</button>
+                <button onclick="window.close()">EXIT</button>
             <div>
-                <button onclick="window.location.href='./index.html'">PLAY</button>
-            </div>
-            <div>
-                <p style="font-size: 13px; color: grey;">References: 
-                    <a style="text-decoration: underline;" href="https://www.youtube.com/watch?v=pQr4O1OITJo">CodingNepal</a>
-                    <a style="text-decoration: underline;" href="https://opentdb.com/api.php?amount=50&category=18&type=multiple">JSON datas</a>
-                </p>
                 <footer>Ahmet ZUMBEROGLU &copy; Copyright 2020</footer>
             </div>
         </div>
