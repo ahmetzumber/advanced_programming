@@ -2,6 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link rel="icon" sizes="192x192" href="../images/quiz.png">
         <title>Quiz Application</title>
         <link rel="stylesheet" href="style.css">
         <style>
@@ -43,7 +44,7 @@
             }
             footer{
                 color:gray;
-                margin-top: 40px;
+                margin-top: 25px;
                 font-size: 10px;
             }
         </style>
@@ -54,11 +55,15 @@
             <div id="desc">You answered wrong 2 questions </div>
             <div>Your Score: <span id="lastscore">0</span></div>
                 <button onclick="window.location.href='./index.html'">TRY AGAIN</button>
-                <button onclick="window.close()">EXIT</button>
             <div>
                 <footer>Ahmet ZUMBEROGLU &copy; Copyright 2020</footer>
             </div>
         </div>
     </body>
-    <script></script>
+    <script>
+        let score = localStorage.getItem("lastscore");
+        if(score != null){
+            document.getElementById("lastscore").innerText = score
+        }
+    </script>
 </html>

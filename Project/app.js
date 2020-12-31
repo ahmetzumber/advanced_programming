@@ -3,6 +3,19 @@ const datas = [
       "category": "Science: Computers",
       "type": "multiple",
       "difficulty": "easy",
+      "question": "Which programming language is not suitable for functional programming?",
+      "correct_answer": "SQL",
+      "answers": [
+        "C",
+        "Python",
+        "SQL",
+        "Perl"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
       "question": "In any programming language, what is the most common way to iterate through an array?",
       "correct_answer": "'For' loops",
       "answers": [
@@ -637,9 +650,9 @@ const datas = [
     }
 ]
 let points = 0
-let questionIndex = 0
+let questionIndex = 1
 let wrongAnswerNumber = 0
-  
+
 const option_a = document.querySelector("#option-a")
 const option_b = document.querySelector("#option-b")
 const option_c = document.querySelector("#option-c")
@@ -669,6 +682,7 @@ function if_answer_incorrect(id) {
         }
     }
     if(wrongAnswerNumber == 2){
+      localStorage.setItem("lastscore",points)
       window.location.href = "./finish.html"
     }
 }
@@ -681,6 +695,7 @@ function setDefaultAll(){
       item.innerHTML = ''
     })
     answers.forEach(item => item.disabled = false)
+    next_button.disabled = true
 }
 
 function loadQuestions(){
@@ -694,7 +709,6 @@ function loadQuestions(){
     option_c.innerHTML = datas[questionIndex].answers[2]
     option_d.innerHTML = datas[questionIndex].answers[3]
 }
-
 next_button.addEventListener("click", () => {
   questionIndex++;
   loadQuestions();
@@ -702,6 +716,7 @@ next_button.addEventListener("click", () => {
 
 option_a.addEventListener("click", () => {
     answers.forEach(item => item.disabled = true)
+    next_button.disabled = false
     if (option_a.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-a")
     }else
@@ -710,6 +725,7 @@ option_a.addEventListener("click", () => {
 
 option_b.addEventListener("click", () => {
   answers.forEach(item => item.disabled = true)
+  next_button.disabled = false
     if (option_b.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-b")
     }else
@@ -718,6 +734,7 @@ option_b.addEventListener("click", () => {
 
 option_c.addEventListener("click", () => {
   answers.forEach(item => item.disabled = true)
+  next_button.disabled = false
     if (option_c.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-c")   
          
@@ -727,6 +744,7 @@ option_c.addEventListener("click", () => {
 
 option_d.addEventListener("click", () => {
   answers.forEach(item => item.disabled = true)
+  next_button.disabled = false
     if (option_d.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-d")
     }else
