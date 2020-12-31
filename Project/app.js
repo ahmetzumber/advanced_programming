@@ -680,6 +680,7 @@ function setDefaultAll(){
       item.style.borderColor = "#eeeeee"
       item.innerHTML = ''
     })
+    answers.forEach(item => item.disabled = false)
 }
 
 function loadQuestions(){
@@ -700,6 +701,7 @@ next_button.addEventListener("click", () => {
 })
 
 option_a.addEventListener("click", () => {
+    answers.forEach(item => item.disabled = true)
     if (option_a.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-a")
     }else
@@ -707,6 +709,7 @@ option_a.addEventListener("click", () => {
 })
 
 option_b.addEventListener("click", () => {
+  answers.forEach(item => item.disabled = true)
     if (option_b.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-b")
     }else
@@ -714,6 +717,7 @@ option_b.addEventListener("click", () => {
 })
 
 option_c.addEventListener("click", () => {
+  answers.forEach(item => item.disabled = true)
     if (option_c.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-c")   
          
@@ -722,6 +726,7 @@ option_c.addEventListener("click", () => {
 })
 
 option_d.addEventListener("click", () => {
+  answers.forEach(item => item.disabled = true)
     if (option_d.innerHTML == datas[questionIndex].correct_answer){
         if_answer_correct("option-d")
     }else
