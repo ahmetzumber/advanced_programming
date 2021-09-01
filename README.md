@@ -23,6 +23,8 @@
 ## Project ⌨
 [Quiz Application](https://ahmetzumber.github.io/advanced_programming/Project/menu.html)
 
+![img](https://raw.githubusercontent.com/ahmetzumber/advanced_programming/main/Project/question-card.PNG)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
